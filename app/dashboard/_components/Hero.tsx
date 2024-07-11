@@ -16,9 +16,9 @@ export default function () {
         </div>
         <div className="mx-auto max-w-screen-xl px-4 py-32">
           <div className="mt-20 mx-auto max-w-4xl text-center">
-            <h1 className="bg-gradient-to-r from-purple-700 via-pink-400 to-purple-700 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl">
-              BlissAI <br/>
-              <span className="sm:block"> AI Content Generator </span>
+           <h1 className="bg-gradient-to-r from-purple-700 via-pink-400 to-purple-700 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl">
+              BlissAI
+              <div className="block sm:block">AI Content Generator</div>
             </h1>
 
             <p className="mx-auto text-purple-500 mt-4 max-w-xl sm:text-xl/relaxed">
