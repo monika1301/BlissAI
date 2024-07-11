@@ -8,12 +8,8 @@ import { UpdateCreditUsageContext } from "../(context)/UpdateCreditUsageContext"
 import { Menu } from "lucide-react";
 import { X } from "lucide-react";
 
-function Layout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  const [totalUsage, setTotalUsage] = useState<Number>(0);
+function Layout({ children }: { children: React.ReactNode }) {
+  const [totalUsage, setTotalUsage] = useState<number>(0);
   const [userSubscription, setUserSubscription] = useState<boolean>(false);
   const [updateCreditUsage, setUpdateCreditUsage] = useState<any>(null);
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -35,38 +31,28 @@ function Layout({
             <div className="md:hidden fixed top-0 left-0 z-50 w-full">
               <button
                 onClick={toggleNav}
-                className="p-3 text-purple-600   focus:outline-none flex items-center"
+                className="p-3 text-purple-600 focus:outline-none flex items-center"
               >
-                {!isNavOpen && <Menu className="h-10 w-8"> </Menu>}
-                {isNavOpen && <X className="h-14 ml-[140px] w-8"> </X>}
-                {isNavOpen ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
+                {!isNavOpen && <Menu className="h-10 w-8" />}
+                {isNavOpen && (
+                  <X className="h-10 w-8 mt-[4px] ml-[139px] transition-transform duration-1000 ease-in-out transform translate-x-0 md:translate-x-full" />
                 )}
-                {/* {isNavOpen ? "" : ""} */}
               </button>
             </div>
             {/* SideNav */}
             <div
-              className={`md:w-64 ${
-                isNavOpen ? "" : "hidden"
-              } md:block fixed top-0 left-0 h-screen bg-purple-100 border transition-transform transform lg:translate-x-0 lg:w-64 z-40`}
+              className={`md:w-64 fixed top-0 left-0 h-screen bg-purple-100 border transition-transform transform lg:translate-x-0 lg:w-64 z-40 ${
+                isNavOpen ? "" : "-translate-x-full md:translate-x-0"
+              }`}
             >
               <SideNav />
             </div>
             {/* Main Content */}
-            <div className={`md:ml-64 ${isNavOpen ? "md:ml-0" : ""}`}>
+            <div
+              className={`md:ml-64 transition-transform ${
+                isNavOpen ? "ml-0" : ""
+              }`}
+            >
               <Header />
               {children}
             </div>
@@ -78,3 +64,4 @@ function Layout({
 }
 
 export default Layout;
+
