@@ -122,7 +122,7 @@ function History() {
           </div>
           <div>
             <Button
-              className="flex gap-1 font-md"
+              className="flex p-2 font-md"
               onClick={() => navigator.clipboard.writeText(item.aiResponse)}
             >
               <Clipboard className="flex w-5 h-7" />
